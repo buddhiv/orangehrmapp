@@ -1,0 +1,31 @@
+{/*<ScrollView>*/}
+                {/*<TouchableOpacity onPress={this.goToMyInfo}>*/}
+                    {/*<Card>*/}
+                        {/*<CardImage*/}
+                            {/*source={{uri: 'http://bit.ly/2GfzooV'}}*/}
+                            {/*title="My Info"/>*/}
+                    {/*</Card>*/}
+                {/*</TouchableOpacity>*/}
+                {/*<TouchableOpacity onPress={this.goToLeave}>*/}
+                    {/*<Card>*/}
+                        {/*<CardImage*/}
+                            {/*source={{uri: 'http://bit.ly/2GfzooV'}}*/}
+                            {/*title="Leave"/>*/}
+                    {/*</Card>*/}
+                {/*</TouchableOpacity>*/}
+                {/*<TouchableOpacity onPress={this.goToTime}>*/}
+                    {/*<Card>*/}
+                        {/*<CardImage*/}
+                            {/*source={{uri: 'http://bit.ly/2GfzooV'}}*/}
+                            {/*title="Time"/>*/}
+                    {/*</Card>*/}
+                {/*</TouchableOpacity>*/}
+                {/*<TouchableOpacity onPress={this.goToNews}>*/}
+                    {/*<Card>*/}
+                        {/*<CardImage*/}
+                            {/*source={{uri: 'http://bit.ly/2GfzooV'}}*/}
+                            {/*title="News"/>*/}
+                    {/*</Card>*/}
+                {/*</TouchableOpacity>*/}
+
+            {/*</ScrollView>*/}
