@@ -4,7 +4,7 @@ import {Card, Button, Text} from 'react-native-elements';
 
 class MyInfoScreen extends React.Component {
     static navigationOptions = ({navigation}) => ({
-        title: 'My Info'
+        title: 'Personal Details'
     });
 
     constructor(props) {
@@ -14,7 +14,7 @@ class MyInfoScreen extends React.Component {
     render() {
         return (
             <View>
-                <Text>My Info</Text>
+                <Text>My Info Personal Details</Text>
             </View>
         )
     }
