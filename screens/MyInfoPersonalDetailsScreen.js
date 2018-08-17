@@ -3,6 +3,7 @@ import {StyleSheet, View, ScrollView, Alert} from 'react-native';
 import {Card, Button, Text} from 'react-native-elements';
 import {TextField} from 'react-native-material-textfield';
 import {Dropdown} from 'react-native-material-dropdown';
+import Globals from "../helpers/Globals";
 
 class MyInfoPersonalDetailsScreen extends React.Component {
     static navigationOptions = ({navigation}) => ({
@@ -14,15 +15,12 @@ class MyInfoPersonalDetailsScreen extends React.Component {
 
         const {navigation} = this.props;
         this.state = {
-            access_token: navigation.getParam('access_token', ''),
-            refresh_token: navigation.getParam('refresh_token', ''),
-            account_data: navigation.getParam('account_data', '')
         };
 
-        fetch('https://ohrm644tagmobilebuddhi-test-infinity.orangehrm.com/api/employees' + this.state.account_data.account.emp_number, {
+        fetch('https://ohrm644tagmobilebuddhi-test-infinity.orangehrm.com/api/employees' + Globals.prototype.account_data.account.emp_number, {
             method: 'GET',
             headers: new Headers({
-                'Authorization': 'Bearer ' + this.state.access_token,
+                'Authorization': 'Bearer ' + Globals.prototype.access_token,
                 'Content-Type': 'application/json'
             })
         }).then((response) => response.json().then(data => ({

@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, Alert} from 'react-native';
 import {FormLabel, FormInput, Button} from 'react-native-elements'
+import {Globals} from '../helpers/Globals'
 
 class LoginScreen extends React.Component {
     constructor(props) {
@@ -57,11 +58,12 @@ class LoginScreen extends React.Component {
                     data: data
                 }))).then((obj) => {
                     if (obj.status === 200 && obj.ok) {
+                        Globals.prototype.access_token = obj.data.token.access_token;
+                        Globals.prototype.refresh_token = obj.data.token.refresh_token;
+                        Globals.prototype.access_data = obj.data;
+                        
                         this.props.navigation.navigate('Dashboard', {
-                            title: 'Dashboard',
-                            access_token: obj.data.token.access_token,
-                            refresh_token: obj.data.token.refresh_token,
-                            account_data: obj.data
+                            title: 'Dashboard'
                         })
                     }
                 }).catch(() => {

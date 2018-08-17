@@ -3,6 +3,7 @@ import {StyleSheet, View, ScrollView, TouchableOpacity, Alert} from 'react-nativ
 import {Button, Text} from 'react-native-elements';
 import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import {createStackNavigator} from "react-navigation";
+import Globals from "../helpers/Globals";
 
 class DashboardScreen extends React.Component {
 
@@ -10,11 +11,7 @@ class DashboardScreen extends React.Component {
         super(props);
 
         const {navigation} = this.props;
-        this.state = {
-            access_token: navigation.getParam('access_token', ''),
-            refresh_token: navigation.getParam('refresh_token', ''),
-            account_data: navigation.getParam('account_data', '')
-        };
+        this.state = {};
 
         if (this.state.account_data.account.emp_number == null) {
             // this.props.navigation.setParams({
