@@ -14,6 +14,7 @@ import MyInfoJobScreen from "./screens/MyInfoJobScreen";
 import MyInfoSalaryScreen from "./screens/MyInfoSalaryScreen";
 import MyInfoContactDetailsScreen from "./screens/MyInfoContactDetailsScreen";
 import MyInfoSocialMediaDetailsScreen from "./screens/MyInfoSocialMediaDetailsScreen";
+import LeaveHomeScreen from "./screens/LeaveHomeScreen";
 
 class App extends React.Component {
     constructor(props) {
@@ -31,19 +32,34 @@ class App extends React.Component {
 
 export const myInfoTabNavigator = createTabNavigator({
     PersonalDetails: {
-        screen: MyInfoPersonalDetailsScreen
+        screen: MyInfoPersonalDetailsScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Personal Details',
+        }),
     },
     Job: {
-        screen: MyInfoJobScreen
+        screen: MyInfoJobScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Job',
+        }),
     },
     Salary: {
-        screen: MyInfoSalaryScreen
+        screen: MyInfoSalaryScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Salary',
+        }),
     },
     ContactDetails: {
-        screen: MyInfoContactDetailsScreen
+        screen: MyInfoContactDetailsScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Contact Details',
+        }),
     },
     SocialMediaDetails: {
-        screen: MyInfoSocialMediaDetailsScreen
+        screen: MyInfoSocialMediaDetailsScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Social Media Details',
+        }),
     }
 }, {
     tabBarOptions: {
@@ -57,15 +73,33 @@ export const myInfoTabNavigator = createTabNavigator({
 export const drawerNavigator = createDrawerNavigator({
     Dashboard: {
         screen: DashboardScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Dashboard',
+        }),
     },
     MyInfo: {
         screen: myInfoTabNavigator,
+        navigationOptions: ({navigation}) => ({
+            title: 'My Info',
+        }),
     },
     Time: {
         screen: TimeHomeScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Time',
+        }),
+    },
+    Leave: {
+        screen: LeaveHomeScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Leave',
+        }),
     },
     News: {
         screen: NewsScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'News',
+        }),
     }
 }, {
     contentComponent: (props) => (
@@ -75,7 +109,10 @@ export const drawerNavigator = createDrawerNavigator({
             <OrangeHRMFooterComponent/>
         </View>
     ),
-    initialRouteName: "Dashboard"
+    initialRouteName: "Dashboard",
+    contentOptions: {
+        activeTintColor: '#f88400'
+    }
 });
 
 export const stackNavigator = createStackNavigator({
