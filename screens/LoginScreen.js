@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View, Alert} from 'react-native';
-import {FormLabel, FormInput, Button} from 'react-native-elements'
+import {FormLabel, FormInput, Button, Card} from 'react-native-elements'
 import {Globals} from '../helpers/Globals'
+import TextField from "react-native-material-textfield/src/components/field";
 
 class LoginScreen extends React.Component {
     constructor(props) {
@@ -11,24 +12,6 @@ class LoginScreen extends React.Component {
             username: '',
             password: '',
         };
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <FormLabel autoFocus={true}>Instance URL</FormLabel>
-                <FormInput onChangeText={(instanceUrl) => this.setState({instanceUrl})}/>
-
-                <FormLabel>Username</FormLabel>
-                <FormInput onChangeText={(username) => this.setState({username})}/>
-
-                <FormLabel>Password</FormLabel>
-                <FormInput onChangeText={(password) => this.setState({password})} secureTextEntry={true}/>
-
-                {/*<FormValidationMessage>Error message</FormValidationMessage>*/}
-                <Button small icon={{name: 'login', type: 'material-community'}} title='Login' onPress={this.login}/>
-            </View>
-        );
     }
 
     login = () => {
@@ -52,16 +35,17 @@ class LoginScreen extends React.Component {
             data: data
         }))).then((obj) => {
             if (obj.status === 200 && obj.ok) {
+                GLOBAL.access_token = obj.data.access_token;
+                GLOBAL.refresh_token = obj.data.refresh_token;
+
                 this.getLoggedInAccountDetails(obj.data).then((response) => response.json().then(data => ({
                     status: response.status,
                     ok: response.ok,
                     data: data
                 }))).then((obj) => {
                     if (obj.status === 200 && obj.ok) {
-                        Globals.prototype.access_token = obj.data.token.access_token;
-                        Globals.prototype.refresh_token = obj.data.token.refresh_token;
-                        Globals.prototype.access_data = obj.data;
-                        
+                        GLOBAL.account_data = obj.data;
+
                         this.props.navigation.navigate('Dashboard', {
                             title: 'Dashboard'
                         })
@@ -85,6 +69,39 @@ class LoginScreen extends React.Component {
                 'Content-Type': 'application/json'
             })
         });
+    };
+
+    render() {
+        return (
+            <View>
+
+                <Card>
+                    <TextField label='Instance URL' value={this.state.instanceUrl}
+                               onChangeText={(instanceUrl) => this.setState({instanceUrl})}/>
+                    <TextField label='Username' value={this.state.username}
+                               onChangeText={(username) => this.setState({username})}/>
+                    <TextField label='Password' value={this.state.password}
+                               onChangeText={(password) => this.setState({password})}/>
+                </Card>
+
+                <Button
+                    title='Login'
+                    size={10}
+                    buttonStyle={{
+                        backgroundColor: "green",
+                        borderColor: "transparent",
+                        width: 100,
+                        borderWidth: 0,
+                        borderRadius: 5,
+                        float: 'right',
+                        marginTop: 20,
+                        marginBottom: 20
+                    }}
+                    onPress={this.login}
+                    containerStyle={{marginTop: 20, alignItems: 'center', flex: 1}}
+                />
+            </View>
+        );
     }
 }
 
@@ -93,7 +110,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
-        // justifyContent: 'center',
     },
 });
 

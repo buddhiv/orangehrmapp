@@ -12,6 +12,8 @@ import OrangeHRMFooterComponent from "./components/OrangeHRMFooterComponent";
 import LoginScreen from "./screens/LoginScreen";
 import MyInfoJobScreen from "./screens/MyInfoJobScreen";
 import MyInfoSalaryScreen from "./screens/MyInfoSalaryScreen";
+import MyInfoContactDetailsScreen from "./screens/MyInfoContactDetailsScreen";
+import MyInfoSocialMediaDetailsScreen from "./screens/MyInfoSocialMediaDetailsScreen";
 
 class App extends React.Component {
     constructor(props) {
@@ -36,6 +38,19 @@ export const myInfoTabNavigator = createTabNavigator({
     },
     Salary: {
         screen: MyInfoSalaryScreen
+    },
+    ContactDetails: {
+        screen: MyInfoContactDetailsScreen
+    },
+    SocialMediaDetails: {
+        screen: MyInfoSocialMediaDetailsScreen
+    }
+}, {
+    tabBarOptions: {
+        scrollEnabled: true,
+        style: {
+            backgroundColor: '#f88400',
+        }
     }
 });
 

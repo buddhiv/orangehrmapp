@@ -3,9 +3,9 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import {Card, Button, Text} from 'react-native-elements';
 import TextField from "react-native-material-textfield/src/components/field";
 
-class MyInfoJobScreen extends React.Component {
+class MyInfoSocialMediaDetailsScreen extends React.Component {
     static navigationOptions = ({navigation}) => ({
-        title: 'Job'
+        title: 'Social Media Details'
     });
 
     constructor(props) {
@@ -22,7 +22,7 @@ class MyInfoJobScreen extends React.Component {
         return (
             <ScrollView>
                 <Card>
-                    <Text>Job Screen</Text>
+                    <Text>Social Media Details Screen</Text>
                 </Card>
             </ScrollView>
         )
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default MyInfoJobScreen;
+export default MyInfoSocialMediaDetailsScreen;

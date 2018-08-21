@@ -1,6 +1,7 @@
 import React from 'react'
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import {Card, Button, Text} from 'react-native-elements';
+import TextField from "react-native-material-textfield/src/components/field";
 
 class MyInfoJobScreen extends React.Component {
     static navigationOptions = ({navigation}) => ({
@@ -9,13 +10,21 @@ class MyInfoJobScreen extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            job_title: ''
+        };
+
+
     }
 
     render() {
         return (
-            <View>
-                <Text>My Info Job</Text>
-            </View>
+            <ScrollView>
+                <Card>
+                    <Text>Job Screen</Text>
+                </Card>
+            </ScrollView>
         )
     }
 }

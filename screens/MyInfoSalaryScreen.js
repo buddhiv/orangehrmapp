@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import {Card, Button, Text} from 'react-native-elements';
 
 class MyInfoSalaryScreen extends React.Component {
@@ -13,9 +13,11 @@ class MyInfoSalaryScreen extends React.Component {
 
     render() {
         return (
-            <View>
-                <Text>My Info Salary</Text>
-            </View>
+            <ScrollView>
+                <Card>
+                    <Text>Salary Screen</Text>
+                </Card>
+            </ScrollView>
         )
     }
 }
