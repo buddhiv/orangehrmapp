@@ -16,9 +16,9 @@ import {Calendar} from 'react-native-calendars';
 
 
 class MyInfoPersonalDetailsScreen extends React.Component {
-    static navigationOptions = ({navigation}) => ({
-        title: 'Personal Details'
-    });
+    static navigationOptions = ({navigation}) => {
+        const {params} = navigation.state;
+    };
 
     constructor(props) {
         super(props);
@@ -40,7 +40,7 @@ class MyInfoPersonalDetailsScreen extends React.Component {
     }
 
     async componentWillMount() {
-        fetch('https://ohrm644tagmobilebuddhi-test-infinity.orangehrm.com/api/employees/' + GLOBAL.account_data.account.emp_number, {
+        fetch('https://ohrm644mobiletestbuddhi-test-infinity.orangehrm.com/api/employees/' + GLOBAL.account_data.account.emp_number, {
             method: 'GET',
             headers: new Headers({
                 'Authorization': 'Bearer ' + GLOBAL.access_token,
@@ -95,7 +95,7 @@ class MyInfoPersonalDetailsScreen extends React.Component {
             "otherId": this.state.other_id,
         });
 
-        fetch('https://ohrm644tagmobilebuddhi-test-infinity.orangehrm.com/api/employees/' + GLOBAL.account_data.account.emp_number, {
+        fetch('https://ohrm644mobiletestbuddhi-test-infinity.orangehrm.com/api/employees/' + GLOBAL.account_data.account.emp_number, {
             method: 'patch',
             headers: {
                 'Authorization': 'Bearer ' + GLOBAL.access_token,

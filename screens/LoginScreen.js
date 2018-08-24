@@ -15,6 +15,8 @@ class LoginScreen extends React.Component {
     }
 
     login = () => {
+        console.log('trying to log in');
+
         var formData = new FormData();
         formData.append('grant_type', 'password');
         formData.append('client_id', 'public_rest_api_client');
@@ -22,7 +24,7 @@ class LoginScreen extends React.Component {
         formData.append('password', 'admin@OHRM123');
 
         // fetch('https://' + this.state.instanceUrl + '/oauth/issueToken', {
-        fetch('https://ohrm644tagmobilebuddhi-test-infinity.orangehrm.com/oauth/issueToken', {
+        fetch('https://ohrm644mobiletestbuddhi-test-infinity.orangehrm.com/oauth/issueToken', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -62,7 +64,7 @@ class LoginScreen extends React.Component {
     };
 
     getLoggedInAccountDetails = (access_info) => {
-        return fetch('https://ohrm644tagmobilebuddhi-test-infinity.orangehrm.com/api/getLoggedInAccount', {
+        return fetch('https://ohrm644mobiletestbuddhi-test-infinity.orangehrm.com/api/getLoggedInAccount', {
             method: 'GET',
             headers: new Headers({
                 'Authorization': 'Bearer ' + access_info.access_token,
@@ -76,12 +78,12 @@ class LoginScreen extends React.Component {
             <View>
 
                 <Card>
-                    <TextField label='Instance URL' value={this.state.instanceUrl}
+                    <TextField label='Instance URL' value={this.state.instanceUrl} tintColor={"#f88400"}
                                onChangeText={(instanceUrl) => this.setState({instanceUrl})}/>
-                    <TextField label='Username' value={this.state.username}
+                    <TextField label='Username' value={this.state.username} tintColor={"#f88400"}
                                onChangeText={(username) => this.setState({username})}/>
-                    <TextField label='Password' value={this.state.password}
-                               onChangeText={(password) => this.setState({password})}/>
+                    <TextField label='Password' value={this.state.password} tintColor={"#f88400"}
+                               onChangeText={(password) => this.setState({password})} secureTextEntry={true}/>
                 </Card>
 
                 <Button

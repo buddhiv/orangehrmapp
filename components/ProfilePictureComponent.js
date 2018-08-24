@@ -18,7 +18,6 @@ class ProfilePictureComponent extends React.Component {
                     source={require('../assets/images/my_info.jpg')}
                     onPress={() => console.log("Works!")}
                     activeOpacity={0.7}
-
                 />
                 <Text></Text>
             </View>

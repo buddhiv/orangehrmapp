@@ -3,10 +3,6 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import {Card, Button, Text, List, ListItem} from 'react-native-elements';
 
 class TimeHomeScreen extends React.Component {
-    static navigationOptions = ({navigation}) => ({
-        title: 'Time'
-    });
-
     constructor(props) {
         super(props);
     }
@@ -14,11 +10,9 @@ class TimeHomeScreen extends React.Component {
     render() {
         return (
             <ScrollView>
-                <List>
-                    <ListItem key="my_attendance" title="My Attendance"/>
-                    <ListItem key="my_timesheets" title="My Timesheets"/>
-                    <ListItem key="punch_in" title="Punch In"/>
-                </List>
+                <Card>
+                    <Text>Time Home</Text>
+                </Card>
             </ScrollView>
         )
     }

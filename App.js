@@ -15,107 +15,10 @@ import MyInfoSalaryScreen from "./screens/MyInfoSalaryScreen";
 import MyInfoContactDetailsScreen from "./screens/MyInfoContactDetailsScreen";
 import MyInfoSocialMediaDetailsScreen from "./screens/MyInfoSocialMediaDetailsScreen";
 import LeaveHomeScreen from "./screens/LeaveHomeScreen";
+import drawerNavigator from "./components/DrawerComponent";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
-    render() {
-        return (
-            <View>
-                <Text>buddhi</Text>
-            </View>
-        )
-    }
-}
-
-export const myInfoTabNavigator = createTabNavigator({
-    PersonalDetails: {
-        screen: MyInfoPersonalDetailsScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Personal Details',
-        }),
-    },
-    Job: {
-        screen: MyInfoJobScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Job',
-        }),
-    },
-    Salary: {
-        screen: MyInfoSalaryScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Salary',
-        }),
-    },
-    ContactDetails: {
-        screen: MyInfoContactDetailsScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Contact Details',
-        }),
-    },
-    SocialMediaDetails: {
-        screen: MyInfoSocialMediaDetailsScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Social Media Details',
-        }),
-    }
-}, {
-    tabBarOptions: {
-        scrollEnabled: true,
-        style: {
-            backgroundColor: '#f88400',
-        }
-    }
-});
-
-export const drawerNavigator = createDrawerNavigator({
-    Dashboard: {
-        screen: DashboardScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Dashboard',
-        }),
-    },
-    MyInfo: {
-        screen: myInfoTabNavigator,
-        navigationOptions: ({navigation}) => ({
-            title: 'My Info',
-        }),
-    },
-    Time: {
-        screen: TimeHomeScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Time',
-        }),
-    },
-    Leave: {
-        screen: LeaveHomeScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Leave',
-        }),
-    },
-    News: {
-        screen: NewsScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'News',
-        }),
-    }
-}, {
-    contentComponent: (props) => (
-        <View>
-            <ProfilePictureComponent/>
-            <DrawerItems {...props} />
-            <OrangeHRMFooterComponent/>
-        </View>
-    ),
-    initialRouteName: "Dashboard",
-    contentOptions: {
-        activeTintColor: '#f88400'
-    }
-});
-
-export const stackNavigator = createStackNavigator({
+const StackNavigator = createStackNavigator({
     Login: {
         screen: LoginScreen
     },
@@ -124,6 +27,22 @@ export const stackNavigator = createStackNavigator({
     }
 }, {
     initialRouteName: "Login",
+    // headerMode: 'none',
+    // navigationOptions: {
+    //     headerVisible: false,
+    // }
 });
 
-export default stackNavigator;
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <StackNavigator/>
+        )
+    }
+}
+
+export default App;

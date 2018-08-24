@@ -3,19 +3,17 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import {Card, Button, Text, List, ListItem} from 'react-native-elements';
 
 class NewsScreen extends React.Component {
-    static navigationOptions = ({navigation}) => ({
-        title: 'News'
-    });
-
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <View>
-                <Text>news</Text>
-            </View>
+            <ScrollView>
+                <Card>
+                    <Text>News</Text>
+                </Card>
+            </ScrollView>
         )
     }
 }
